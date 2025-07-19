@@ -9,7 +9,6 @@ A modern C++ project starter using CMake.
 - Organized `src/` and `include/` layout
 - Local dependency management via `add_subdirectory`
 - clangd support via compile_commands.json
-- Bundled `fmt` as a subdirectory
 
 ## Getting Started
 
