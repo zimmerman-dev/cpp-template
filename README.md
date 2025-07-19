@@ -1,4 +1,4 @@
-cat > README.md <<EOF
+![cpp-template](assets/cpp-template.png)
 # cpp-template
 
 A modern C++ project starter using CMake.
