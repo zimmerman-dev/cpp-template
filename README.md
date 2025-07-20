@@ -3,8 +3,6 @@
 
 This is a minimal cross-platform C++17+ project template using CMake. It's designed as a professional-grade starting point for C++ projects, especially useful for beginners and intermediate developers who want a simple, clean build system.
 
----
-
 ## About This Template
 
 This template is configured for **C++ projects only** (`LANGAUGES CXX`). It does not support C, Python, or other languages.
@@ -16,8 +14,6 @@ This template is configured for **C++ projects only** (`LANGAUGES CXX`). It does
 - Commented lines for scalability as project grows
 - Organized `src/`, `exclude`, and `include/` layout
 - clangd support via compile_commands.json
-
----
 
 ## Project Layout
 
@@ -33,16 +29,11 @@ cpp-template/
 +-- assets/ # Media, diagrams, or documentation assets
 +-- build/ # CMake build output (ignored by Git)
 ```
-
----
-
 ## Features
 
 - Organized `src/` and `include/` layout
 - Local dependency management via `add_subdirectory`
 - clangd support via compile_commands.json
-
----
 
 ## Getting Started
 
@@ -52,9 +43,6 @@ cpp-template/
 git clone https://github.com/<your-username>/cpp-template.git
 cd cpp-template
 ```
-
----
-
 ### 2. Rename the Project
 
 Open `CMakeList.txt` and change this line:
@@ -62,23 +50,17 @@ Open `CMakeList.txt` and change this line:
 ``` cmake
 project(<your_project_name> LANGUAGES CXX)
 ```
-
 To something like this:
 
 ``` cmake
 project(my_app LANGUAGES CXX)
 ```
-
 This sets the name of your compiled binary as (./my_app).
-
----
 
 ### Add your Code
 
 Edit `src/main.cpp` or expand the `src/` directory to build out your program.
 You can also add headers in `include/` or new `.cpp` files as needed.
-
----
 
 ## Using External Libraries
 
@@ -92,7 +74,6 @@ If a library like `fmt` is already installed (e.g. via `dnf`, `apt`, `brew`), yo
 find_package(library_name REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE library_name::library_name)
 ```
-
 Replace `library_name` with the actual name of the library and its CMake target. Replace `{PROJECT_NAME}` with the name of your project. Make sure the library is installed using your package mananger.
 
 ### Option B: Vendored (local) libraries
@@ -102,17 +83,13 @@ To keep everything inside the project, you can clone libraries directly into the
 ``` shell
 git clone --depth 1 https://github.com/your/library.git external/library_name
 ```
-
 Then modify `CMakeList.txt`:
 
 ``` cmake
 add_subdirectory(external/library_name)
 target_link_libraries(${PROJECT_NAME} PRIVATE library_name::library_name)
 ```
-
 Repeat this pattern for any additional libraries you want to include locally.
-
----
 
 ### Building and Running
 
@@ -125,10 +102,6 @@ cmake ..
 make
 ./my_app  # Replace with your project name from CMakeLists.txt
 ```
-
----
-
 ### License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
-
