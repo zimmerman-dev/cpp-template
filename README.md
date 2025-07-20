@@ -3,105 +3,126 @@
 
 This is a minimal cross-platform C++17+ project template using CMake. It's designed as a professional-grade starting point for C++ projects, especially useful for beginners and intermediate developers who want a simple, clean build system.
 
+---
+
 ## About This Template
 
-This template is configured for **C++ projects only** (`LANGAUGES CXX`). It does not support C, Python, or other languages.
+This template is configured for **C++ projects only** (`LANGUAGES CXX`). It does not support C, Python, or other languages.
 
 ### Features
-- Cross platform
-- A minimal `main.cpp` entry point
-- A clean build system using CMake
-- Commented lines for scalability as project grows
-- Organized `src/`, `exclude`, and `include/` layout
-- clangd support via compile_commands.json
+- Cross-platform (Linux, macOS, Windows)
+- Minimal `main.cpp` entry point
+- Clean, modern CMake build system
+- Commented lines to support future scaling
+- Organized layout: `src/`, `include/`, `external/`, `assets/`
+- Compatible with language servers (e.g., Clangd)
+
+---
 
 ## Project Layout
 
-``` shell
+```text
 cpp-template/
-+-- CMakeLists.txt # Top-level build config
-+-- README.md # Project documentation
-+-- LICENSE # Project license (MIT)
-+-- .gitignore # Ignore build files and binaries
-+-- src/ # Source files (main.cpp entry point)
-+-- include/ # (Optional) Public headers
-+-- external/ # (Optional) Vendored third-party libraries
-+-- assets/ # Media, diagrams, or documentation assets
-+-- build/ # CMake build output (ignored by Git)
++-- CMakeLists.txt     # Top-level build config
++-- README.md          # Project documentation
++-- LICENSE            # MIT License
++-- .gitignore         # Ignores build files, binaries, and metadata
++-- src/               # Source files (main.cpp entry point)
++-- include/           # (Optional) Public headers
++-- external/          # (Optional) Vendored third-party libraries
++-- assets/            # Images, diagrams, or documentation media
++-- build/             # CMake build output (ignored by Git)
 ```
-## Features
 
-- Organized `src/` and `include/` layout
-- Local dependency management via `add_subdirectory`
-- clangd support via compile_commands.json
+---
 
 ## Getting Started
 
-### 1. Clone the project
+### 1. Clone the Project
 
-```shell
+```bash
 git clone https://github.com/<your-username>/cpp-template.git
 cd cpp-template
 ```
+
 ### 2. Rename the Project
 
-Open `CMakeList.txt` and change this line:
+Edit `CMakeLists.txt` and change this line:
 
-``` cmake
+```cmake
 project(<your_project_name> LANGUAGES CXX)
 ```
-To something like this:
 
-``` cmake
+To something like:
+
+```cmake
 project(my_app LANGUAGES CXX)
 ```
-This sets the name of your compiled binary as (./my_app).
 
-### Add your Code
+This sets the name of the compiled binary (e.g., `./my_app`).
 
-Edit `src/main.cpp` or expand the `src/` directory to build out your program.
-You can also add headers in `include/` or new `.cpp` files as needed.
+---
+
+### 3. Add Your Code
+
+Write your code in `src/main.cpp`, or expand the `src/` directory with additional `.cpp` files.
+
+You can also place public headers in the `include/` directory if needed.
+
+---
 
 ## Using External Libraries
 
-You can link libraries one of two way:
+You can link libraries one of two ways:
+
+---
 
 ### Option A: System-installed libraries
 
-If a library like `fmt` is already installed (e.g. via `dnf`, `apt`, `brew`), you can enable it like this:
+If a library is installed via your system's package manager (`dnf`, `apt`, `brew`, etc.), you can use:
 
-``` cmake
+```cmake
 find_package(library_name REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE library_name::library_name)
 ```
-Replace `library_name` with the actual name of the library and its CMake target. Replace `{PROJECT_NAME}` with the name of your project. Make sure the library is installed using your package mananger.
+
+Replace `library_name` with the name of the library and CMake target. Replace `${PROJECT_NAME}` with your actual project name.
+
+---
 
 ### Option B: Vendored (local) libraries
 
-To keep everything inside the project, you can clone libraries directly into the `external/` folder:
+To keep everything local to your project, you can clone the library source into `external/`:
 
-``` shell
+```bash
 git clone --depth 1 https://github.com/your/library.git external/library_name
 ```
-Then modify `CMakeList.txt`:
 
-``` cmake
+Then add this to `CMakeLists.txt`:
+
+```cmake
 add_subdirectory(external/library_name)
 target_link_libraries(${PROJECT_NAME} PRIVATE library_name::library_name)
 ```
+
 Repeat this pattern for any additional libraries you want to include locally.
 
-### Building and Running
+---
+
+## Building and Running
 
 Once you've written or updated your code in `src/`, you can build and run it:
 
-``` shell
+```bash
 mkdir build
 cd build
 cmake ..
 make
-./my_app  # Replace with your project name from CMakeLists.txt
+./my_app  # Replace with your actual binary name
 ```
-### License
+
+---
+
+## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
