@@ -1,5 +1,6 @@
-![cpp-template](assets/cpp-template.png)
-# cpp-template
+<p align="center">
+    <img src="assets/cpp-template.jpg" alt="cpp-template logo">
+</p>
 
 This is a minimal cross-platform C++17+ project template using CMake. It's designed as a professional-grade starting point for C++ projects, especially useful for beginners and intermediate developers who want a simple, clean build system.
 
